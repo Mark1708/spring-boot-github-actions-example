@@ -35,8 +35,12 @@ jobs:
       - name: Build with Maven
         run: mvn clean install
 
-      - name: Test
-        run: mvn test
+      - name: Maven Verify
+        run: mvn -B clean verify
+      - name: Test Coverage
+        uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
 
       - name: Build & push Docker image
         uses: mr-smithers-excellent/docker-build-push@v5
