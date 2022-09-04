@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>simple-spring-boot-app</artifactId>
+    <artifactId>spring-boot-github-actions-example</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>simple-spring-boot-app</name>
-    <description>simple-spring-boot-app</description>
+    <name>spring-boot-github-actions-example</name>
+    <description>spring-boot-github-actions-example</description>
     <properties>
         <java.version>11</java.version>
     </properties>
@@ -69,6 +69,7 @@
                 </configuration>
             </plugin>
         </plugins>
+        <finalName>spring-boot-github-actions-example</finalName>
     </build>
 
 </project>
