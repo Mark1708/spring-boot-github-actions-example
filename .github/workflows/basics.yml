@@ -19,7 +19,7 @@ jobs:
       - name: Lint Code Base
         uses: github/super-linter@v4
         env:
-          VALIDATE_ALL_CODEBASE: false
+#          VALIDATE_ALL_CODEBASE: false
           VALIDATE_JAVA: true
           VALIDATE_YAML: true
           DEFAULT_BRANCH: master
@@ -39,7 +39,7 @@ jobs:
         uses: mr-smithers-excellent/docker-build-push@v5
         with:
           image: markstav/spring-boot-github-actions-example
-          tags: ${{ steps.meta.outputs.tags }}, latest
+          tags: ${{ matrix.tag }}, latest
           registry: docker.io
           dockerfile: Dockerfile
           username: ${{ secrets.DOCKER_USERNAME }}
