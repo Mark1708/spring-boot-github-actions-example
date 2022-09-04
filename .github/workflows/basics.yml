@@ -26,7 +26,7 @@ jobs:
       - name: Build & push Docker image
         uses: mr-smithers-excellent/docker-build-push@v5
         with:
-          image: mark1708/spring-boot-github-actions-example
+          image: markstav/spring-boot-github-actions-example
           tags: v1, latest
           registry: docker.io
           dockerfile: Dockerfile
