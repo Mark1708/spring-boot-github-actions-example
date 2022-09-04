@@ -16,14 +16,14 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Lint Code Base
-        uses: github/super-linter@v4
-        env:
-#          VALIDATE_ALL_CODEBASE: false
-          VALIDATE_JAVA: true
-          VALIDATE_YAML: true
-          DEFAULT_BRANCH: master
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#      - name: Lint Code Base
+#        uses: github/super-linter@v4
+#        env:
+##          VALIDATE_ALL_CODEBASE: false
+#          VALIDATE_JAVA: true
+#          VALIDATE_YAML: true
+#          DEFAULT_BRANCH: master
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set up JDK 11
         uses: actions/setup-java@v1
