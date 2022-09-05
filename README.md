@@ -34,6 +34,8 @@
 Статический анализ в [sonarcloud.io](https://sonarcloud.io/)
 <br/>
 
+![reports](https://github.com/Mark1708/spring-boot-github-actions-example/raw/main/reports.png)
+
 ## Technologies
 * Java - version 11
 * Spring Boot - version 2.7.2
