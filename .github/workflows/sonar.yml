@@ -1,4 +1,4 @@
-name: "SonarCloud"
+name: Sonar Cloud Analyze
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - 'master'
       - 'main'
   pull_request:
-    types: [opened, synchronize, reopened]
+    types: [ opened, synchronize, reopened ]
 
 jobs:
   sonarcloud:

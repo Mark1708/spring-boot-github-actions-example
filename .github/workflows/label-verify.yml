@@ -1,8 +1,8 @@
-name: "Verify labels in PR"
+name: Verify labels in PR
 
 on:
   pull_request:
-    types: [opened, labeled, unlabeled, synchronize]
+    types: [ opened, labeled, unlabeled, synchronize ]
 
 jobs:
   triage:

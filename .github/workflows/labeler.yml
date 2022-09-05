@@ -1,4 +1,4 @@
-name: "Auto-assign themes to PR"
+name: Auto-assign themes to PR
 
 on:
   - pull_request
