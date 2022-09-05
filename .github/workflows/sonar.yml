@@ -3,7 +3,8 @@ name: SonarCloud
 on:
   push:
     branches:
-      - master
+      - 'master'
+      - 'main'
   pull_request:
     types: [opened, synchronize, reopened]
 
