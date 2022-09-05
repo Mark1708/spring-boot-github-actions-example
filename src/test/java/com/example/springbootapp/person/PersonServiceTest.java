@@ -7,6 +7,9 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.TestPropertySource;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +19,9 @@ import static com.example.springbootapp.utils.PersonServiceUtils.PERSON_1;
 import static com.example.springbootapp.utils.PersonServiceUtils.PERSON_2;
 import static org.junit.jupiter.api.Assertions.*;
 
-@ExtendWith(MockitoExtension.class)
+@SpringBootTest
+@ExtendWith(SpringExtension.class)
+@TestPropertySource(locations = "classpath:application.properties")
 class PersonServiceTest {
 
     @Mock
@@ -33,12 +38,13 @@ class PersonServiceTest {
         persons = new ArrayList<>();
         persons.add(PERSON_1);
         persons.add(PERSON_2);
-        repo.saveAll(persons);
+        Mockito.when(repo.findAll()).thenReturn(persons);
+        Mockito.when(repo.findPersonById(1L)).thenReturn(Optional.of(PERSON_1));
+        Mockito.when(repo.findPersonById(2L)).thenReturn(Optional.empty());
     }
 
     @Test
     void getAllPerson() {
-        Mockito.when(repo.findAll()).thenReturn(persons);
         List<Person> result = service.getAllPerson();
         assertEquals(2, result.size());
         assertTrue(result.contains(PERSON_1));
@@ -47,7 +53,6 @@ class PersonServiceTest {
 
     @Test
     void getPerson() {
-        Mockito.when(repo.findPersonById(1L)).thenReturn(Optional.of(PERSON_1));
         assertEquals(PERSON_1, service.getPerson(1L));
     }
 
