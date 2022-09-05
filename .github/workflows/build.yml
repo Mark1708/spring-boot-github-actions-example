@@ -25,6 +25,6 @@ jobs:
       - name: Maven Package
         run: mvn -B clean package -DskipTests
       - name: Test Coverage
-        uses: codecov/codecov-action@v1
+        uses: codecov/codecov-action@v3
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
