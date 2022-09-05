@@ -22,8 +22,8 @@ jobs:
           java-version: '11'
           distribution: 'adopt'
           cache: maven
-      - name: Maven Package
-        run: mvn -B clean package -DskipTests
+      - name: Maven Verify
+        run: mvn -B clean verify    
       - name: Test Coverage
         uses: codecov/codecov-action@v1
         with:
