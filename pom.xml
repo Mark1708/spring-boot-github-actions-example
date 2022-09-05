@@ -74,8 +74,8 @@
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>0.8.7</version>
                 <configuration>
-                    <exclude>com/example/**/Person.class</exclude>
-                    <exclude>com/example/**/NotFoundException.class</exclude>
+                    <exclude>com/example/**/Person.*</exclude>
+                    <exclude>com/example/**/NotFoundException.*</exclude>
                     <exclude>com/example/**/*DTO.*</exclude>
                     <exclude>com/example/**/config/*</exclude>
                 </configuration>
