@@ -1,8 +1,8 @@
-package com.example.springbootapp;
+package com.example.springbootapp.utils;
 
 import com.example.springbootapp.person.Person;
 
-public class PersonServiceTestUtil {
+public class PersonServiceUtils {
 
     public static final Person PERSON_1;
     public static final Person PERSON_2;
