@@ -34,49 +34,43 @@ import java.util.Optional;
 @TestPropertySource(locations = "classpath:application.properties")
 class PersonControllerTest {
 
-    @Autowired
-    MockMvc mockMvc;
+	@Autowired
+	MockMvc mockMvc;
 
-    @MockBean
-    PersonService service;
+	@MockBean
+	PersonService service;
 
-    private List<Person> persons;
+	private List<Person> persons;
 
-    @BeforeEach
-    void init() {
-        PersonServiceUtils.initData();
-        persons = new ArrayList<>();
-        persons.add(PERSON_1);
-        persons.add(PERSON_2);
-        Mockito.when(service.getAllPerson()).thenReturn(persons);
-        Mockito.when(service.getPerson(1L)).thenReturn(PERSON_1);
-        Mockito.when(service.getPerson(2L)).thenThrow(NotFoundException.class);
+	@BeforeEach
+	void init() {
+		PersonServiceUtils.initData();
+		persons = new ArrayList<>();
+		persons.add(PERSON_1);
+		persons.add(PERSON_2);
+		Mockito.when(service.getAllPerson()).thenReturn(persons);
+		Mockito.when(service.getPerson(1L)).thenReturn(PERSON_1);
+		Mockito.when(service.getPerson(2L)).thenThrow(NotFoundException.class);
 
-    }
+	}
 
-    @Test
-    void getAllPersons() throws Exception {
-        mockMvc.perform(get("/person"))
-                .andDo(print())
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$", Matchers.hasSize(2)))
-                .andExpect(jsonPath("$[0].name", Matchers.is("Mark")));
-    }
+	@Test
+	void getAllPersons() throws Exception {
+		mockMvc.perform(get("/person")).andDo(print()).andExpect(status().isOk())
+				.andExpect(jsonPath("$", Matchers.hasSize(2))).andExpect(jsonPath("$[0].name", Matchers.is("Mark")));
+	}
 
-    @Test
-    void getPerson() throws Exception {
-        mockMvc.perform(get("/person/1"))
-                .andDo(print())
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.id").value(1L))
-                .andExpect(jsonPath("$.name").value("Mark"));
+	@Test
+	void getPerson() throws Exception {
+		mockMvc.perform(get("/person/1")).andDo(print()).andExpect(status().isOk())
+				.andExpect(jsonPath("$.id").value(1L)).andExpect(jsonPath("$.name").value("Mark"));
 
-    }
+	}
 
-    @Test
-    void getPersonException() throws Exception {
-        mockMvc.perform(get("/person/2"))
-                .andExpect(status().isNotFound());
+	@Test
+	void getPersonException() throws Exception {
+		mockMvc.perform(get("/person/2")).andExpect(status().isNotFound());
 
-    }
+	}
+
 }

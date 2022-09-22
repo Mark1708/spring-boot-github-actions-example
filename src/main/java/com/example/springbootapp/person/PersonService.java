@@ -10,19 +10,19 @@ import java.util.List;
 @Service
 public class PersonService {
 
-    private final PersonRepository repo;
+	private final PersonRepository repo;
 
-    @Autowired
-    public PersonService(PersonRepository repo) {
-        this.repo = repo;
-    }
+	@Autowired
+	public PersonService(PersonRepository repo) {
+		this.repo = repo;
+	}
 
-    public List<Person> getAllPerson() {
-        return repo.findAll();
-    }
+	public List<Person> getAllPerson() {
+		return repo.findAll();
+	}
 
-    public Person getPerson(Long id) {
-        return repo.findPersonById(id)
-                .orElseThrow(() -> new NotFoundException("Not found element(s) by id " + id));
-    }
+	public Person getPerson(Long id) {
+		return repo.findPersonById(id).orElseThrow(() -> new NotFoundException("Not found element(s) by id " + id));
+	}
+
 }
