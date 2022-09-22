@@ -12,22 +12,21 @@ import java.util.List;
 @RequestMapping("/person")
 public class PersonController {
 
-    private final PersonService personService;
+	private final PersonService personService;
 
-    @Autowired
-    public PersonController(PersonService personService) {
-        this.personService = personService;
-    }
+	@Autowired
+	public PersonController(PersonService personService) {
+		this.personService = personService;
+	}
 
-    @GetMapping
-    public List<Person> getAllPersons() {
-        return personService.getAllPerson();
-    }
+	@GetMapping
+	public List<Person> getAllPersons() {
+		return personService.getAllPerson();
+	}
 
-    @GetMapping("/{id}")
-    public Person getPerson(@PathVariable Long id) {
-        return personService.getPerson(id);
-    }
-
+	@GetMapping("/{id}")
+	public Person getPerson(@PathVariable Long id) {
+		return personService.getPerson(id);
+	}
 
 }
